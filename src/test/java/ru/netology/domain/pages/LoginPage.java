@@ -25,12 +25,6 @@ public class LoginPage {
         return new LoginPage();
     }
 
-    public VerificationPage authiInvalid(DataHelper.AuthInfo info) {
-        invalidAuthorization(info);
-        return new VerificationPage();
-
-    }
-
     public void validAuthorization(DataHelper.AuthInfo info) {
         loginField.setValue(info.getLogin());
         passwordField.setValue(info.getPassword());
