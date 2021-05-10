@@ -6,6 +6,7 @@ import org.openqa.selenium.Keys;
 import ru.netology.domain.data.DataHelper;
 
 import static com.codeborne.selenide.Selenide.$;
+import static java.awt.SystemColor.info;
 
 public class LoginPage {
 
@@ -31,14 +32,7 @@ public class LoginPage {
         loginButton.click();
     }
 
-    public void invalidAuthorization(DataHelper.AuthInfo info) {
-        loginField.setValue(info.getLogin());
-        Faker faker = new Faker();
-        passwordField.setValue(faker.internet().password());
-        loginButton.click();
-    }
-
-    public void clearField() {
+        public void clearField() {
         loginField.sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         passwordField.sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
     }

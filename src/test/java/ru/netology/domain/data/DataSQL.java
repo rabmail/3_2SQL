@@ -13,19 +13,22 @@ public class DataSQL {
 
     public static void dropSql() {
         val runner = new QueryRunner();
-        val users = "DELETE FROM users";
         val verificationCodes = "DELETE FROM auth_codes";
+        val transactions = "DELETE FROM card_transactions";
         val cards = "DELETE FROM cards";
+        val users = "DELETE FROM users";
 
         try (Connection connection = getConnection()) {
-            runner.update(connection, users);
             runner.update(connection, verificationCodes);
+            runner.update(connection, transactions);
             runner.update(connection, cards);
+            runner.update(connection, users);
 
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }
     }
+
 
     public static String getVerificationCode(DataHelper.AuthInfo authInfo) {
 
