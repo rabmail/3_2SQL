@@ -1,12 +1,10 @@
 package ru.netology.domain.pages;
 
 import com.codeborne.selenide.SelenideElement;
-import com.github.javafaker.Faker;
 import org.openqa.selenium.Keys;
 import ru.netology.domain.data.DataHelper;
 
 import static com.codeborne.selenide.Selenide.$;
-import static java.awt.SystemColor.info;
 
 public class LoginPage {
 
