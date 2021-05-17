@@ -16,7 +16,7 @@ public class LoginPage {
     private SelenideElement errorNotification = $("[data-test-id='error-notification']");
 
     public VerificationPage authValid(DataHelper.AuthInfo info) {
-        validAuthorization(info);
+        authorization(info);
         return new VerificationPage();
 
     }
@@ -26,7 +26,7 @@ public class LoginPage {
         return new LoginPage();
     }
 
-    public void validAuthorization(DataHelper.AuthInfo info) {
+    public void authorization(DataHelper.AuthInfo info) {
         loginField.setValue(info.getLogin());
         passwordField.setValue(info.getPassword());
         loginButton.click();

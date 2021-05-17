@@ -6,7 +6,10 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import ru.netology.domain.pages.DataPages;
+import ru.netology.domain.pages.ErrorPage;
 import ru.netology.domain.pages.LoginPage;
+import ru.netology.domain.pages.VerificationPage;
 
 import static com.codeborne.selenide.Selenide.open;
 
@@ -39,20 +42,21 @@ public class TestApp {
         dataPage.dashboardPageVisible();
     }
 //docker-compose up
+    //docker-compose up --force-recreate --no-deps mysql
 //java -jar artifacts/app-deadline.jar -P:jdbc.url=jdbc:mysql://localhost:3306/app -P:jdbc.user=app -P:jdbc.pass
 
 
     @Test
     void shouldInvalidVerfication() {
-        val errorAut = "Пользователь заблокирован";
+        val errorPage = new ErrorPage();
         val loginPage = new LoginPage();
         val authInfo = getInvInfo();
-        loginPage.authValid(authInfo);
+        loginPage.authorization(authInfo);
         loginPage.clear();
-        loginPage.authValid(authInfo);
+        loginPage.authorization(authInfo);
         loginPage.clear();
-        loginPage.authValid(authInfo);
-        assertEquals(errorAut, "Пользователь заблокирован");
+        loginPage.authorization(authInfo);
+        errorPage.errorPageVisible();
     }
 
 }
