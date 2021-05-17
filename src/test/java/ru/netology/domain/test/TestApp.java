@@ -1,21 +1,16 @@
 package ru.netology.domain.test;
 
-import lombok.SneakyThrows;
 import lombok.val;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import ru.netology.domain.pages.DataPages;
 import ru.netology.domain.pages.ErrorPage;
 import ru.netology.domain.pages.LoginPage;
-import ru.netology.domain.pages.VerificationPage;
 
 import static com.codeborne.selenide.Selenide.open;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static ru.netology.domain.data.DataHelper.AuthInfo.getAuthInfo;
-
 import static ru.netology.domain.data.DataHelper.getInvInfo;
 import static ru.netology.domain.data.DataSQL.dropSql;
 import static ru.netology.domain.data.DataSQL.getVerificationCode;
